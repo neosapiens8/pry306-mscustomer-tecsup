@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: pryeureka-mscustomer
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://localhost:8888 # puerto definido en configserver
+          fail-fail: true
+          retry:
+            max-attemps: 20
+            max-intervals: 15000
+            initial-interval: 10000
