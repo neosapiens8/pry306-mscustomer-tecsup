@@ -1,19 +1,20 @@
 package com.codigotecsup.mscustomer.entidad;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+//import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+//import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.util.Date;
+//import java.util.Date;
 
 @Data
 @Builder
-@Document("customer")
+@Document("coleccustomers")
+//@Document(collection = "coleccustomers") // Alternativa
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
@@ -23,7 +24,7 @@ public class Customer {
     private String nombre;
     @NotEmpty
     private String apellido;
-
+    /*
     private Tipocustomer tipocustomer1;
     private enumeratipodocumento enutipodoc1;
 
@@ -38,4 +39,5 @@ public class Customer {
     public enum enumeratipodocumento{
         DNI,PASAPORTE
     }
+    */
 }

@@ -1,13 +1,33 @@
+# Innecesario pues se usara el apigateway para acceder a este microservicio
+#server:
+#  port: 8081 # puerto de acceso
+
 spring:
   application:
-    name: pryeureka-mscustomer
+    name: wmscustomer # nombre de la aplicación en un entorno Spring para microservicios
   cloud:
     config:
       server:
         git:
-          uri: http://localhost:8888 # puerto definido en configserver
-          fail-fail: true
-          retry:
-            max-attemps: 20
-            max-intervals: 15000
-            initial-interval: 10000
+          uri: http://localhost:8888 # URI del servidor de configuración (no Git), puerto definido en configserver
+          fail-fast: true # Hace que la aplicación falle rápidamente si no puede conectar con el servidor de configuración
+          retry: # política de reintentos para conectar con el servidor de configuración
+            max-attempts: 20  # número máximo de intentos para conectarse al servidor de configuración antes de desistir
+            max-interval: 15000 # tiempo máximo (en milisegundos) entre los intentos de reconexión
+            initial-interval: 10000 # tiempo inicial (en milisegundos) a antes de realizar el primer intento de reconexión
+
+# ALTERNATIVA
+#spring:
+#  application:
+#    name: wmscustomer # nombre de la aplicación o microservicio
+#  cloud:
+#    config:
+#      uri: http://localhost:8888 # URI del servidor de configuración (no Git), , puerto definido en configserver
+#      fail-fast: true # Se corrigió "fail-fail" a "fail-fast"
+#      name: wmscustomer # nombre de la aplicación que el servidor de configuración buscará
+#      profile: default # perfil que se usará
+#      label: main # rama del repositorio Git que se usará
+#          retry: # política de reintentos para conectar con el servidor de configuración
+#            max-attempts: 20  # número máximo de intentos para conectarse al servidor de configuración antes de desistir
+#            max-interval: 15000 # tiempo máximo (en milisegundos) entre los intentos de reconexión
+#            initial-interval: 10000 # tiempo inicial (en milisegundos) a antes de realizar el primer intento de reconexión

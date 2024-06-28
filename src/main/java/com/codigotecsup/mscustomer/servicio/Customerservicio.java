@@ -6,8 +6,8 @@ import reactor.core.publisher.Mono;
 
 public interface Customerservicio {
     // declaracion de métodos del servicio
-    public Mono<Customer> sscrear (Customer customer1);
-    public Mono<Customer> ssactualizar (Customer customer2);
+    public Mono<Customer> sscrear (Customer cust1);
+    public Mono<Customer> ssactualizar (Customer cust2);
     public Mono<Customer> ssbuscarxid (String id);
     public Flux<Customer> ssbuscartodo ();
     public Mono<Boolean> sseliminar (String id);
